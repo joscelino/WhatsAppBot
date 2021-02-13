@@ -5,12 +5,13 @@ import pywhatkit
 import keyboard
 import time
 from datetime import datetime
+from typing import List, NewType
 
-contact = ['+5511-----', ]
-message = open("mensagem.txt", "r")
+contact: List = ['+5511-----', ]
+message: NewType = open("mensagem.txt", "r")
 
 while len(contact) >= 1:
-    print(contact[0])
+    """ Itera lista de contatos, acessa whatsAppWeb e envia mensagens """
     pywhatkit.sendwhatmsg(contact[0], message.read(),
                           datetime.now().hour, datetime.now().minute + 1)
     del contact[0]
